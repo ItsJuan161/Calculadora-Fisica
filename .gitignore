@@ -1,0 +1,5 @@
+node_modules/
+lunes-24-backend/node_modules/
+lunes-24-frontend/node_modules/
+lunes-24-frontend/dist/
+.env

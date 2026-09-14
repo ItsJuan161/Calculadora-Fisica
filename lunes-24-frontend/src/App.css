@@ -1,0 +1,330 @@
+* {
+    box-sizing: border-box;
+    }
+
+    body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #eaeaea;
+    }
+
+    #root {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    }
+
+    h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 10px;
+    }
+
+    h2 {
+    text-align: center;
+    font-size: 18px;
+    color: #a0a0c0;
+    font-weight: normal;
+    margin-bottom: 20px;
+    }
+
+    /* Menú de botones */
+    .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    }
+
+    .menu button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a4e8f;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    }
+
+    .menu button:hover {
+    background-color: #6266b3;
+    }
+
+    /* Tarjeta de formulario */
+    .formulario {
+    background-color: #24243e;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .formulario h3 {
+    margin-top: 0;
+    color: #ffffff;
+    }
+
+    .formulario label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #c0c0e0;
+    font-size: 14px;
+    }
+
+    .formulario input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #1a1a2e;
+    color: white;
+    font-size: 14px;
+    }
+
+    .formulario input:focus {
+    outline: none;
+    border-color: #6266b3;
+    }
+
+    .formulario button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4caf7d;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    }
+
+    .formulario button:hover:not(:disabled) {
+    background-color: #3d9c68;
+    }
+
+    .formulario button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    }
+
+    .resultado {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #1e3a2b;
+    color: #a8f0c0;
+    font-size: 14px;
+    }
+
+    .error {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #3a1e1e;
+    color: #f0a8a8;
+    font-size: 14px;
+    }
+
+.volver {
+    display: block;
+    width: 100%;
+    background-color: #4caf7d;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.volver:hover {
+    background-color: #3d9c68;
+}
+
+    .hamburguesa {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    background-color: #4a4e8f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .hamburguesa:hover {
+    background-color: #6266b3;
+    }
+
+    .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 200;
+    display: flex;
+    }
+
+    .panel-menu {
+    width: 260px;
+    height: 100%;
+    background-color: #24243e;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #3a3a5c;
+    }
+
+    .cerrar {
+    background: none;
+    border: none;
+    color: #a0a0c0;
+    font-size: 18px;
+    cursor: pointer;
+    }
+
+    .cerrar:hover {
+    color: #ffffff;
+    }
+
+    .panel-menu button {
+    text-align: left;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #33335a;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    }
+
+    .panel-menu button:hover {
+    background-color: #4a4e8f;
+    }
+
+    .icono-menu {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    }
+
+    .bienvenida {
+    max-width: 480px;
+    margin: 60px auto 0;
+    text-align: center;
+    color: #a0a0c0;
+    font-size: 15px;
+    line-height: 1.6;
+    }
+
+    .inicio {
+    position: relative;
+    }
+
+    /* Chips */
+    .chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 500px;
+    margin: 25px auto 0;
+    }
+
+    .chip {
+    background-color: #2e2e50;
+    color: #c0c0e0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    }
+
+    /* Ilustración de fondo */
+    .ilustracion-fondo {
+    display: block;
+    width: 220px;
+    margin: 50px auto;
+    opacity: 0.12;
+    }
+
+    /* Categorías */
+    .categorias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    }
+
+    .categoria-card {
+    background-color: #24243e;
+    border-radius: 10px;
+    padding: 18px 20px;
+    width: 160px;
+    text-align: center;
+    }
+
+    .categoria-card h4 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 15px;
+    }
+
+    .categoria-card p {
+    margin: 0;
+    color: #a0a0c0;
+    font-size: 13px;
+    line-height: 1.4;
+    }
+
+/* Pie de página */
+    .footer {
+    text-align: center;
+    color: #55557a;
+    font-size: 12px;
+    margin-top: 50px;
+    padding-bottom: 20px;
+    }
+
+    /* Ocultar las flechas nativas de los inputs numéricos */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    input[type="number"] {
+    -moz-appearance: textfield;
+    }
