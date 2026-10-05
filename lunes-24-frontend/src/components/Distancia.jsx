@@ -7,60 +7,68 @@ function Distancia() {
     const [error, setError] = useState(null)
     const [cargando, setCargando] = useState(false)
 
-    const handleSubmit = async () => {
+    const convertir = (valor) => (valor === '' ? undefined : Number(valor))
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         setError(null)
         setResultado(null)
         setCargando(true)
 
         try {
-        const respuesta = await fetch('http://localhost:5000/fisica/distancia', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-            velocidad: Number(velocidad),
-            tiempo: Number(tiempo)
+            const respuesta = await fetch('http://localhost:5000/fisica/distancia', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    velocidad: convertir(velocidad),
+                    tiempo: convertir(tiempo)
+                })
             })
-        })
 
-        const datos = await respuesta.json()
-        await new Promise(resolve => setTimeout(resolve, 500))
-        setCargando(false)
+            const datos = await respuesta.json()
+            await new Promise(resolve => setTimeout(resolve, 500))
+            setCargando(false)
 
-        if (!respuesta.ok) {
-            setError(datos.mensaje)
-        } else {
-            setResultado(datos)
-        }
+            if (!respuesta.ok) {
+                setError(datos.mensaje)
+            } else {
+                setResultado(datos)
+            }
         } catch (err) {
-        setCargando(false)
-        setError('No se pudo conectar con el servidor')
+            setCargando(false)
+            setError('No se pudo conectar con el servidor')
         }
     }
 
     return (
-        <div className="formulario">
+        <form className="formulario" onSubmit={handleSubmit}>
+            <h3>Calcular Distancia</h3>
+            <p className="descripcion">
+                Calcula cuánto recorre un objeto a partir de su velocidad y el
+                tiempo que se mueve (d = v × t).
+            </p>
 
-        <h3>Calcular Distancia</h3>
+            <label>Velocidad (m/s): </label>
+            <input
+                type="number" placeholder='introduzca el valor de velocidad'
+                value={velocidad}
+                onChange={(e) => setVelocidad(e.target.value)}
+            />
 
-        <label>Velocidad (m/s): </label>
-        <input 
-        type="number" placeholder='introduzca el valor de velocidad'
-        value={velocidad} 
-        onChange={(e) => setVelocidad(e.target.value)} />
+            <label>Tiempo (s): </label>
+            <input
+                type="number" placeholder='introduzca el valor de tiempo'
+                value={tiempo}
+                onChange={(e) => setTiempo(e.target.value)}
+            />
 
-        <label>Tiempo (s): </label>
-        <input 
-        type="number" placeholder='introduzca el valor de tiempo'
-        value={tiempo} 
-        onChange={(e) => setTiempo(e.target.value)} />
+            <button type="submit" disabled={cargando}>
+                {cargando ? 'Calculando...' : 'Calcular'}
+            </button>
 
-        <button onClick={handleSubmit} disabled={cargando}>
-            {cargando ? 'Calculando...' : 'Calcular'}
-        </button>
-
-        {resultado && <p className="resultado">{resultado.mensaje}</p>}
-        {error && <p className="error">Error: {error}</p>}
-    </div>
+            {resultado && <p className="resultado">{resultado.mensaje}</p>}
+            {error && <p className="error">Error: {error}</p>}
+        </form>
     )
 }
 

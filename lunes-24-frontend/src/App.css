@@ -66,6 +66,13 @@
     color: #ffffff;
     }
 
+    .formulario .descripcion {
+    margin-top: 0;
+    color: #a0a0c0;
+    font-size: 14px;
+    line-height: 1.5;
+    }
+
     .formulario label {
     display: block;
     margin-top: 15px;

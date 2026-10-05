@@ -1,0 +1,22 @@
+info:
+  name: Tiempo
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: http://localhost:5000/fisica/distancia
+  body:
+    type: json
+    data: |-
+      {
+        "distancia": 120,
+        "tiempo": 2
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
