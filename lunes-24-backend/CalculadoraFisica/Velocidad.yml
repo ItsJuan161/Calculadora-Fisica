@@ -5,12 +5,12 @@ info:
 
 http:
   method: POST
-  url: http://localhost:5000/fisica/velocida
+  url: http://localhost:5000/fisica/velocidad
   body:
     type: json
     data: |-
       {
-        "distancia": 120,
+        "distancia": "hola",
         "tiempo": 2
       }
   auth: inherit

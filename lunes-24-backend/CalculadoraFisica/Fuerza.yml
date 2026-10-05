@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: http://localhost:5000/fisica/aceleracion
+  url: http://localhost:5000/fisica/fuerza
   body:
     type: json
     data: |-

@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: http://localhost:5000/fisica/fuerza
+  url: http://localhost:5000/fisica/peso
   body:
     type: json
     data: |-

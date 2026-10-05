@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: http://localhost:5000/fisica/distancia
+  url: http://localhost:5000/fisica/tiempo
   body:
     type: json
     data: |-

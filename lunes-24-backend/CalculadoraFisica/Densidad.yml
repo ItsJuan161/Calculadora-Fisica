@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: http://localhost:5000/fisica/energia-cinetica
+  url: http://localhost:5000/fisica/densidad
   body:
     type: json
     data: |-
