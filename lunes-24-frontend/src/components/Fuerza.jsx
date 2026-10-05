@@ -7,7 +7,11 @@ function Fuerza() {
     const [error, setError] = useState(null)
     const [cargando, setCargando] = useState(false)
 
-    const convertir = (valor) => (valor === '' ? undefined : Number(valor))
+    const convertir = (valor) => {
+        if (valor.trim() === '') return undefined
+        if (isNaN(Number(valor))) return valor
+        return Number(valor)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -50,14 +54,14 @@ function Fuerza() {
 
             <label>Masa (kg): </label>
             <input
-                type="number" placeholder='introduzca el valor de masa'
+                type="text" inputMode="decimal" placeholder='introduzca el valor de masa'
                 value={masa}
                 onChange={(e) => setMasa(e.target.value)}
             />
 
             <label>Aceleración (m/s²): </label>
             <input
-                type="number" placeholder='introduzca el valor de aceleración'
+                type="text" inputMode="decimal" placeholder='introduzca el valor de aceleración'
                 value={aceleracion}
                 onChange={(e) => setAceleracion(e.target.value)}
             />

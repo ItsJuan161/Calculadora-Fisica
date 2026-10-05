@@ -8,7 +8,11 @@ function Aceleracion() {
     const [error, setError] = useState(null)
     const [cargando, setCargando] = useState(false)
 
-    const convertir = (valor) => (valor === '' ? undefined : Number(valor))
+    const convertir = (valor) => {
+        if (valor.trim() === '') return undefined
+        if (isNaN(Number(valor))) return valor
+        return Number(valor)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -52,21 +56,21 @@ function Aceleracion() {
 
             <label>Velocidad inicial (m/s): </label>
             <input
-                type="number" placeholder='introduzca velocidad inicial'
+                type="text" inputMode="decimal" placeholder='introduzca velocidad inicial'
                 value={velocidadInicial}
                 onChange={(e) => setVelocidadInicial(e.target.value)}
             />
 
             <label>Velocidad final (m/s): </label>
             <input
-                type="number" placeholder='introduzca velocidad final'
+                type="text" inputMode="decimal" placeholder='introduzca velocidad final'
                 value={velocidadFinal}
                 onChange={(e) => setVelocidadFinal(e.target.value)}
             />
 
             <label>Tiempo (s): </label>
             <input
-                type="number" placeholder='introduzca el tiempo'
+                type="text" inputMode="decimal" placeholder='introduzca el tiempo'
                 value={tiempo}
                 onChange={(e) => setTiempo(e.target.value)}
             />

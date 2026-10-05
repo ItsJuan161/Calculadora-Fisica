@@ -7,7 +7,11 @@ function Distancia() {
     const [error, setError] = useState(null)
     const [cargando, setCargando] = useState(false)
 
-    const convertir = (valor) => (valor === '' ? undefined : Number(valor))
+    const convertir = (valor) => {
+        if (valor.trim() === '') return undefined
+        if (isNaN(Number(valor))) return valor
+        return Number(valor)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -50,14 +54,14 @@ function Distancia() {
 
             <label>Velocidad (m/s): </label>
             <input
-                type="number" placeholder='introduzca el valor de velocidad'
+                type="text" inputMode="decimal" placeholder='introduzca el valor de velocidad'
                 value={velocidad}
                 onChange={(e) => setVelocidad(e.target.value)}
             />
 
             <label>Tiempo (s): </label>
             <input
-                type="number" placeholder='introduzca el valor de tiempo'
+                type="text" inputMode="decimal" placeholder='introduzca el valor de tiempo'
                 value={tiempo}
                 onChange={(e) => setTiempo(e.target.value)}
             />
